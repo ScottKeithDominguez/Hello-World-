@@ -66,9 +66,61 @@ This is a test repository for learning and experimentation with GitHub features 
 - Validate that security workflows continue to run successfully
 - Test locally before pushing changes
 
+## Workflow & Contribution Guidelines
+
+### Development Process
+
+1. **Branch Naming**: Use descriptive branch names (e.g., `feature/add-authentication`, `fix/security-vulnerability`)
+2. **Commit Messages**: Write clear, concise commit messages that explain the "why" behind changes
+3. **Pull Requests**: 
+   - Include a description of changes
+   - Reference related issues
+   - Ensure all checks pass before requesting review
+4. **Code Review**: All changes should be reviewed before merging to main branch
+
+### File Organization
+
+- **Documentation**: Store all documentation files (`.md`) in the root directory
+- **Workflows**: GitHub Actions workflows go in `.github/workflows/`
+- **Configuration**: Project configuration files in `.github/` or root as appropriate
+- **Security**: Security-related documentation in root with `SECURITY` prefix
+
+## Common Patterns & Examples
+
+### Documentation Style
+
+When adding new documentation:
+- Use clear headings and subheadings
+- Include code examples where applicable
+- Add links to external resources
+- Keep formatting consistent with existing docs
+
+### Security Practices
+
+When working with sensitive data:
+```yaml
+# Good: Use GitHub Secrets
+env:
+  API_KEY: ${{ secrets.API_KEY }}
+
+# Bad: Never hardcode secrets
+env:
+  API_KEY: "1234567890abcdef"
+```
+
+### Workflow Updates
+
+When modifying GitHub Actions workflows:
+- Test changes in a feature branch first
+- Ensure proper permissions are set
+- Use specific action versions (e.g., `@v4` not `@latest`)
+- Add comments explaining complex steps
+
 ## Resources
 
 - [GitHub Security Features](https://docs.github.com/en/code-security)
 - [CodeQL Documentation](https://codeql.github.com/docs/)
 - [Dependabot Documentation](https://docs.github.com/en/code-security/dependabot)
 - [BSD-3-Clause License](https://opensource.org/licenses/BSD-3-Clause)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [Markdown Guide](https://www.markdownguide.org/)
