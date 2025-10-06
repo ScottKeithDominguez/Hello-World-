@@ -14,9 +14,15 @@ The following security features have been set up through code and configuration 
 2. **CodeQL Analysis** - Automated code scanning
    - Located at: `/.github/workflows/codeql.yml`
    - Runs on: push to main, pull requests, and weekly schedule
-   - Note: The language matrix is currently empty `[]`. Update it based on the programming languages used in your project.
+   - Configured languages: `javascript-typescript`, `python`, `go`, `java-kotlin`
 
-3. **LICENSE** - BSD-3-Clause License
+3. **Development Container** - CodeQL development environment
+   - Located at: `/.devcontainer/devcontainer.json`
+   - Includes CodeQL container image with pre-configured tools
+   - Supports: JavaScript/TypeScript (Node), Python, Go, and Java
+   - Includes GitHub CLI and VS Code extensions for CodeQL development
+
+4. **LICENSE** - BSD-3-Clause License
    - Located at: `/LICENSE`
    - Standard BSD 3-Clause license text
 
@@ -46,11 +52,13 @@ Allows security researchers to privately report vulnerabilities.
 
 ## 🔧 CodeQL Configuration
 
-The CodeQL workflow currently has an empty language matrix. To enable code scanning for your project's languages, update line 34 in `.github/workflows/codeql.yml`:
+The CodeQL workflow has been configured with the following languages in `.github/workflows/codeql.yml`:
 
 ```yaml
-language: [ 'javascript-typescript' ]  # Example for JavaScript/TypeScript
+language: [ 'javascript-typescript', 'python', 'go', 'java-kotlin' ]
 ```
+
+If you need to modify the languages being scanned, update line 34 in `.github/workflows/codeql.yml`.
 
 Supported languages:
 - `c-cpp`
